@@ -22,8 +22,7 @@
 
     packages.x86_64-linux.hello =
       # Notice the reference to nixpkgs here.
-      with import nixpkgs { system = "x86_64-linux"; };
-      stdenv.mkDerivation {
+      nixpkgs.legacyPackages.x86_64-linux.stdenv.mkDerivation {
         name = "hello";
         src = self;
         buildPhase = "gcc -o hello ./hello.c";
